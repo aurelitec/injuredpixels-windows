@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.mainContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuBlack = new System.Windows.Forms.ToolStripMenuItem();
             this.menuWhite = new System.Windows.Forms.ToolStripMenuItem();
@@ -86,7 +87,7 @@
             this.toolStripSeparator4,
             this.closeHelpMenuItem});
             this.mainContextMenu.Name = "mainContextMenu";
-            this.mainContextMenu.Size = new System.Drawing.Size(250, 402);
+            resources.ApplyResources(this.mainContextMenu, "mainContextMenu");
             this.mainContextMenu.Closed += new System.Windows.Forms.ToolStripDropDownClosedEventHandler(this.MainContextMenuClosed);
             this.mainContextMenu.Opened += new System.EventHandler(this.MainContextMenuOpened);
             // 
@@ -95,9 +96,7 @@
             this.menuBlack.BackColor = System.Drawing.Color.Black;
             this.menuBlack.ForeColor = System.Drawing.Color.White;
             this.menuBlack.Name = "menuBlack";
-            this.menuBlack.ShortcutKeyDisplayString = "1";
-            this.menuBlack.Size = new System.Drawing.Size(249, 22);
-            this.menuBlack.Text = "&Black";
+            resources.ApplyResources(this.menuBlack, "menuBlack");
             this.menuBlack.Click += new System.EventHandler(this.AnyColorMenuItemClick);
             // 
             // menuWhite
@@ -105,9 +104,7 @@
             this.menuWhite.BackColor = System.Drawing.Color.White;
             this.menuWhite.ForeColor = System.Drawing.Color.Black;
             this.menuWhite.Name = "menuWhite";
-            this.menuWhite.ShortcutKeyDisplayString = "2";
-            this.menuWhite.Size = new System.Drawing.Size(249, 22);
-            this.menuWhite.Text = "&White";
+            resources.ApplyResources(this.menuWhite, "menuWhite");
             this.menuWhite.Click += new System.EventHandler(this.AnyColorMenuItemClick);
             // 
             // menuRed
@@ -115,9 +112,7 @@
             this.menuRed.BackColor = System.Drawing.Color.Red;
             this.menuRed.ForeColor = System.Drawing.Color.White;
             this.menuRed.Name = "menuRed";
-            this.menuRed.ShortcutKeyDisplayString = "3";
-            this.menuRed.Size = new System.Drawing.Size(249, 22);
-            this.menuRed.Text = "Re&d";
+            resources.ApplyResources(this.menuRed, "menuRed");
             this.menuRed.Click += new System.EventHandler(this.AnyColorMenuItemClick);
             // 
             // menuGreen
@@ -125,9 +120,7 @@
             this.menuGreen.BackColor = System.Drawing.Color.Lime;
             this.menuGreen.ForeColor = System.Drawing.Color.Black;
             this.menuGreen.Name = "menuGreen";
-            this.menuGreen.ShortcutKeyDisplayString = "4";
-            this.menuGreen.Size = new System.Drawing.Size(249, 22);
-            this.menuGreen.Text = "&Green";
+            resources.ApplyResources(this.menuGreen, "menuGreen");
             this.menuGreen.Click += new System.EventHandler(this.AnyColorMenuItemClick);
             // 
             // menuBlue
@@ -135,9 +128,7 @@
             this.menuBlue.BackColor = System.Drawing.Color.Blue;
             this.menuBlue.ForeColor = System.Drawing.Color.White;
             this.menuBlue.Name = "menuBlue";
-            this.menuBlue.ShortcutKeyDisplayString = "5";
-            this.menuBlue.Size = new System.Drawing.Size(249, 22);
-            this.menuBlue.Text = "Bl&ue";
+            resources.ApplyResources(this.menuBlue, "menuBlue");
             this.menuBlue.Click += new System.EventHandler(this.AnyColorMenuItemClick);
             // 
             // menuCustomColor
@@ -145,67 +136,53 @@
             this.menuCustomColor.BackColor = System.Drawing.Color.DarkOrange;
             this.menuCustomColor.ForeColor = System.Drawing.Color.Black;
             this.menuCustomColor.Name = "menuCustomColor";
-            this.menuCustomColor.ShortcutKeyDisplayString = "6";
-            this.menuCustomColor.Size = new System.Drawing.Size(249, 22);
-            this.menuCustomColor.Text = "&Custom Color";
+            resources.ApplyResources(this.menuCustomColor, "menuCustomColor");
             this.menuCustomColor.Click += new System.EventHandler(this.AnyColorMenuItemClick);
             // 
             // menuNextColor
             // 
             this.menuNextColor.Name = "menuNextColor";
-            this.menuNextColor.ShortcutKeyDisplayString = "Right";
-            this.menuNextColor.Size = new System.Drawing.Size(249, 22);
-            this.menuNextColor.Text = "&Next Color";
+            resources.ApplyResources(this.menuNextColor, "menuNextColor");
             this.menuNextColor.Click += new System.EventHandler(this.MenuNextColorOnClick);
             // 
             // menuPreviousColor
             // 
             this.menuPreviousColor.Name = "menuPreviousColor";
-            this.menuPreviousColor.ShortcutKeyDisplayString = "Left";
-            this.menuPreviousColor.Size = new System.Drawing.Size(249, 22);
-            this.menuPreviousColor.Text = "&Previous Color";
+            resources.ApplyResources(this.menuPreviousColor, "menuPreviousColor");
             this.menuPreviousColor.Click += new System.EventHandler(this.MenuPreviousColorOnClick);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(246, 6);
+            resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
             // 
             // menuSelectCustomColor
             // 
             this.menuSelectCustomColor.Name = "menuSelectCustomColor";
-            this.menuSelectCustomColor.ShortcutKeyDisplayString = "";
-            this.menuSelectCustomColor.Size = new System.Drawing.Size(249, 22);
-            this.menuSelectCustomColor.Text = "&Select Custom Color...";
+            resources.ApplyResources(this.menuSelectCustomColor, "menuSelectCustomColor");
             this.menuSelectCustomColor.Click += new System.EventHandler(this.MenuSelectCustomColorOnClick);
             // 
             // menuRandomCustomColor
             // 
             this.menuRandomCustomColor.Name = "menuRandomCustomColor";
-            this.menuRandomCustomColor.ShortcutKeyDisplayString = "R";
-            this.menuRandomCustomColor.Size = new System.Drawing.Size(249, 22);
-            this.menuRandomCustomColor.Text = "&Random Custom Color";
+            resources.ApplyResources(this.menuRandomCustomColor, "menuRandomCustomColor");
             this.menuRandomCustomColor.Click += new System.EventHandler(this.MenuRandomCustomColorOnClick);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(246, 6);
+            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
             // 
             // menuCheckMultipleMonitors
             // 
             this.menuCheckMultipleMonitors.Name = "menuCheckMultipleMonitors";
-            this.menuCheckMultipleMonitors.Size = new System.Drawing.Size(249, 22);
-            this.menuCheckMultipleMonitors.Text = "Check Multiple M&onitors";
-            this.menuCheckMultipleMonitors.Visible = false;
+            resources.ApplyResources(this.menuCheckMultipleMonitors, "menuCheckMultipleMonitors");
             // 
             // menuShowMouseCursor
             // 
             this.menuShowMouseCursor.CheckOnClick = true;
             this.menuShowMouseCursor.Name = "menuShowMouseCursor";
-            this.menuShowMouseCursor.ShortcutKeyDisplayString = "M";
-            this.menuShowMouseCursor.Size = new System.Drawing.Size(249, 22);
-            this.menuShowMouseCursor.Text = "Show &Mouse Cursor";
+            resources.ApplyResources(this.menuShowMouseCursor, "menuShowMouseCursor");
             this.menuShowMouseCursor.CheckedChanged += new System.EventHandler(this.MenuShowMouseCursorOnCheckedChanged);
             // 
             // menuAlwaysOnTop
@@ -214,23 +191,19 @@
             this.menuAlwaysOnTop.CheckOnClick = true;
             this.menuAlwaysOnTop.CheckState = System.Windows.Forms.CheckState.Checked;
             this.menuAlwaysOnTop.Name = "menuAlwaysOnTop";
-            this.menuAlwaysOnTop.ShortcutKeyDisplayString = "A";
-            this.menuAlwaysOnTop.Size = new System.Drawing.Size(249, 22);
-            this.menuAlwaysOnTop.Text = "&Always On Top";
+            resources.ApplyResources(this.menuAlwaysOnTop, "menuAlwaysOnTop");
             this.menuAlwaysOnTop.CheckedChanged += new System.EventHandler(this.MenuAlwaysOnTopOnCheckedChanged);
             // 
             // menuTouchMode
             // 
             this.menuTouchMode.CheckOnClick = true;
             this.menuTouchMode.Name = "menuTouchMode";
-            this.menuTouchMode.ShortcutKeyDisplayString = "T";
-            this.menuTouchMode.Size = new System.Drawing.Size(249, 22);
-            this.menuTouchMode.Text = "&Touch Mode";
+            resources.ApplyResources(this.menuTouchMode, "menuTouchMode");
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(246, 6);
+            resources.ApplyResources(this.toolStripSeparator3, "toolStripSeparator3");
             // 
             // menuAbout
             // 
@@ -241,66 +214,49 @@
             this.toolStripSeparator5,
             this.menuAboutHelp});
             this.menuAbout.Name = "menuAbout";
-            this.menuAbout.Size = new System.Drawing.Size(249, 22);
-            this.menuAbout.Text = "About";
+            resources.ApplyResources(this.menuAbout, "menuAbout");
             // 
             // menuAboutName
             // 
-            this.menuAboutName.Enabled = false;
-            this.menuAboutName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            resources.ApplyResources(this.menuAboutName, "menuAboutName");
             this.menuAboutName.Name = "menuAboutName";
-            this.menuAboutName.Size = new System.Drawing.Size(223, 22);
-            this.menuAboutName.Text = "InjuredPixels (.NET Edition)";
             // 
             // menuAboutVersion
             // 
-            this.menuAboutVersion.Enabled = false;
+            resources.ApplyResources(this.menuAboutVersion, "menuAboutVersion");
             this.menuAboutVersion.Name = "menuAboutVersion";
-            this.menuAboutVersion.Size = new System.Drawing.Size(223, 22);
-            this.menuAboutVersion.Text = "Version {0}";
             // 
             // menuAboutCopyright
             // 
-            this.menuAboutCopyright.Enabled = false;
+            resources.ApplyResources(this.menuAboutCopyright, "menuAboutCopyright");
             this.menuAboutCopyright.Name = "menuAboutCopyright";
-            this.menuAboutCopyright.Size = new System.Drawing.Size(223, 22);
-            this.menuAboutCopyright.Text = "Copyright © Aurelitec";
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(220, 6);
+            resources.ApplyResources(this.toolStripSeparator5, "toolStripSeparator5");
             // 
             // menuAboutHelp
             // 
             this.menuAboutHelp.Name = "menuAboutHelp";
-            this.menuAboutHelp.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.menuAboutHelp.Size = new System.Drawing.Size(223, 22);
-            this.menuAboutHelp.Text = "Online Help";
-            this.menuAboutHelp.ToolTipText = "http://www.aurelitec.com/injuredpixels/windows/help/";
+            resources.ApplyResources(this.menuAboutHelp, "menuAboutHelp");
             this.menuAboutHelp.Click += new System.EventHandler(this.MenuAboutUrlItemsOnClick);
             // 
             // menuQuit
             // 
             this.menuQuit.Name = "menuQuit";
-            this.menuQuit.ShortcutKeyDisplayString = "Q";
-            this.menuQuit.Size = new System.Drawing.Size(249, 22);
-            this.menuQuit.Text = "&Quit";
+            resources.ApplyResources(this.menuQuit, "menuQuit");
             this.menuQuit.Click += new System.EventHandler(this.MenuQuitOnClick);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(246, 6);
+            resources.ApplyResources(this.toolStripSeparator4, "toolStripSeparator4");
             // 
             // closeHelpMenuItem
             // 
-            this.closeHelpMenuItem.Enabled = false;
+            resources.ApplyResources(this.closeHelpMenuItem, "closeHelpMenuItem");
             this.closeHelpMenuItem.Name = "closeHelpMenuItem";
-            this.closeHelpMenuItem.ShowShortcutKeys = false;
-            this.closeHelpMenuItem.Size = new System.Drawing.Size(249, 22);
-            this.closeHelpMenuItem.Text = "(click outside or Esc to hide menu)";
-            this.closeHelpMenuItem.ToolTipText = "To show the menu again, right-click on the screen or press Escape.";
             // 
             // customColorDialog
             // 
@@ -308,16 +264,13 @@
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(590, 445);
             this.ContextMenuStrip = this.mainContextMenu;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainForm";
-            this.Text = "InjuredPixels";
             this.TopMost = true;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainFormClosed);
             this.Load += new System.EventHandler(this.MainFormLoad);

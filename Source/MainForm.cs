@@ -59,26 +59,6 @@ namespace InjuredPixels
         }
 
         /// <summary>
-        /// Event Handler for the Click event of the multi-monitor support menu items.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">An object that contains no event data.</param>
-        private void AnyMonitorMenuItemClick(object sender, EventArgs e)
-        {
-            ToolStripMenuItem senderMenuItem = sender as ToolStripMenuItem;
-
-            this.Bounds = Utils.GetScreenBounds(senderMenuItem.Tag as Screen);
-
-            // Radio check current monitor menu item
-            foreach (ToolStripMenuItem item in this.menuCheckMultipleMonitors.DropDownItems)
-            {
-                item.Image = null;
-            }
-
-            senderMenuItem.Image = Properties.Resources.RadioCheckIconBlack;
-        }
-
-        /// <summary>
         /// Event Handler for the Load event of the main form - performs startup tasks.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
@@ -108,33 +88,84 @@ namespace InjuredPixels
             }
 
             // Multi-monitor support - create a submenu for each screen and one for all screens
+            this.AddMultiMonitorSupport();
+
+            // Fill only the primary screen by default
+            this.Bounds = Utils.GetScreenBounds(Screen.PrimaryScreen);
+
+            // Improve the look of the main context menu
+            this.ModernizeContextMenu();
+
+            // Hide the mouse cursor by default
+            Cursor.Hide();
+
+            // Load configuration
+            this.LoadConfiguration();
+
+            // Show the main context menu at startup
+            this.mainContextMenu.Show(Cursor.Position);
+        }
+
+        // *******************************
+        // Initialization Helper Functions
+        // *******************************
+
+        /// <summary>
+        /// Event Handler for the Click event of the multi-monitor support menu items.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">An object that contains no event data.</param>
+        private void AnyMonitorMenuItemClick(object sender, EventArgs e)
+        {
+            ToolStripMenuItem senderMenuItem = sender as ToolStripMenuItem;
+
+            this.Bounds = Utils.GetScreenBounds(senderMenuItem.Tag as Screen);
+
+            // Radio check current monitor menu item
+            foreach (ToolStripMenuItem item in this.menuCheckMultipleMonitors.DropDownItems)
+            {
+                item.Image = null;
+            }
+
+            senderMenuItem.Image = Properties.Resources.RadioCheckIconBlack;
+        }
+
+        /// <summary>
+        /// Add multi-monitor support: create a submenu for each screen and one for all screens.
+        /// </summary>
+        private void AddMultiMonitorSupport()
+        {
             if (Screen.AllScreens.Length > 1)
             {
                 this.menuCheckMultipleMonitors.Visible = true;
                 for (int i = 0; i < Screen.AllScreens.Length; i++)
                 {
                     Screen scr = Screen.AllScreens[i];
-                    ToolStripMenuItem item = new ToolStripMenuItem(
+                    using (ToolStripMenuItem item = new ToolStripMenuItem(
                         scr.DeviceName,
                         scr.Primary ? Properties.Resources.RadioCheckIconBlack : null,
-                        new EventHandler(this.AnyMonitorMenuItemClick)) { Tag = scr };
-                    if (i < 9)
+                        new EventHandler(this.AnyMonitorMenuItemClick)))
                     {
-                        item.ShortcutKeys = Keys.Control | (Keys.D1 + i);
-                    }
+                        item.Tag = scr;
+                        if (i < 9)
+                        {
+                            item.ShortcutKeys = Keys.Control | (Keys.D1 + i);
+                        }
 
-                    this.menuCheckMultipleMonitors.DropDownItems.Add(item);
+                        this.menuCheckMultipleMonitors.DropDownItems.Add(item);
+                    }
                 }
 
                 ToolStripMenuItem allMenu = new ToolStripMenuItem(Properties.Resources.UiAllMonitorsMenu, null, new EventHandler(this.AnyMonitorMenuItemClick), Keys.Control | Keys.A);
-
                 this.menuCheckMultipleMonitors.DropDownItems.Add(allMenu);
             }
+        }
 
-            // Fill only the primary screen by default
-            this.Bounds = Utils.GetScreenBounds(Screen.PrimaryScreen);
-
-            // Improve the look of the main context menu
+        /// <summary>
+        /// Improve the look of the main context menu.
+        /// </summary>
+        private void ModernizeContextMenu()
+        {
             MenuToolStripCustomizer customizer = MenuToolStripCustomizer.Modernize(
                 ColorTranslator.FromHtml("#F2F2F2"),
                 ColorTranslator.FromHtml("#D9D9D9"),
@@ -150,15 +181,6 @@ namespace InjuredPixels
             customizer.ColorTable.ColorOfCheckSelectedBackground = Color.Empty;
             customizer.ColorTable.ColorOfButtonSelectedBorder = Color.Empty;
             customizer.ColorTable.ColorOfMenuBorder = ColorTranslator.FromHtml("#a0a0a0");
-
-            // Hide the mouse cursor by default
-            Cursor.Hide();
-
-            // Load configuration
-            this.LoadConfiguration();
-
-            // Show the main context menu at startup
-            this.mainContextMenu.Show(Cursor.Position);
         }
 
         // ***********************************
@@ -456,6 +478,7 @@ namespace InjuredPixels
         /// <summary>
         /// Saves the program configuration.
         /// </summary>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes", Justification = "We are logging the exception")]
         private void LoadConfiguration()
         {
             try
@@ -481,6 +504,7 @@ namespace InjuredPixels
         /// <summary>
         /// Saves the program configuration.
         /// </summary>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes", Justification = "We are logging the exception")]
         private void SaveConfiguration()
         {
             try

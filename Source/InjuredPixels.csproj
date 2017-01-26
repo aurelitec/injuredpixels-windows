@@ -137,6 +137,7 @@
     <AdditionalFiles Include="stylecop.json" />
   </ItemGroup>
   <ItemGroup>
+    <CodeAnalysisDictionary Include="CodeAnalysisDictionary.xml" />
     <Content Include="InjuredPixelsIcon.ico" />
     <None Include="Resources\RadioCheckIconWhite.png" />
     <None Include="Resources\RadioCheckIconBlack.png" />
