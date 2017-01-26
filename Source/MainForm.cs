@@ -141,19 +141,17 @@ namespace InjuredPixels
                 for (int i = 0; i < Screen.AllScreens.Length; i++)
                 {
                     Screen scr = Screen.AllScreens[i];
-                    using (ToolStripMenuItem item = new ToolStripMenuItem(
+                    ToolStripMenuItem item = new ToolStripMenuItem(
                         scr.DeviceName,
                         scr.Primary ? Properties.Resources.RadioCheckIconBlack : null,
-                        new EventHandler(this.AnyMonitorMenuItemClick)))
+                        new EventHandler(this.AnyMonitorMenuItemClick));
+                    item.Tag = scr;
+                    if (i < 9)
                     {
-                        item.Tag = scr;
-                        if (i < 9)
-                        {
-                            item.ShortcutKeys = Keys.Control | (Keys.D1 + i);
-                        }
-
-                        this.menuCheckMultipleMonitors.DropDownItems.Add(item);
+                        item.ShortcutKeys = Keys.Control | (Keys.D1 + i);
                     }
+
+                    this.menuCheckMultipleMonitors.DropDownItems.Add(item);
                 }
 
                 ToolStripMenuItem allMenu = new ToolStripMenuItem(Properties.Resources.UiAllMonitorsMenu, null, new EventHandler(this.AnyMonitorMenuItemClick), Keys.Control | Keys.A);
