@@ -3,7 +3,7 @@
 
 #define MyAppName "InjuredPixels"
 #define MyAppVersion "4.0"
-#define MyAppFileVersion "4.0.0.200"
+#define MyAppFileVersion "4.0.0.125"
 #define MyAppPublisher "Aurelitec"
 #define MyAppURL "http://www.aurelitec.com/injuredpixels/"
 #define MyAppExeName "InjuredPixels.exe"
