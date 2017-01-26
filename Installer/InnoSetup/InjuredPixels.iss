@@ -3,6 +3,7 @@
 
 #define MyAppName "InjuredPixels"
 #define MyAppVersion "4.0"
+#define MyAppFileVersion "4.0.0.200"
 #define MyAppPublisher "Aurelitec"
 #define MyAppURL "http://www.aurelitec.com/injuredpixels/"
 #define MyAppExeName "InjuredPixels.exe"
@@ -22,12 +23,16 @@ AppUpdatesURL={#MyAppURL}
 DefaultDirName={pf}\{#MyAppPublisher}\{#MyAppName}
 DefaultGroupName={#MyAppName}
 AllowNoIcons=yes
-LicenseFile=D:\HDevelop\Aurelitec\InjuredPixels\Windows\WinForms\Source\GitRepository\InjuredPixels\Installer\InnoSetup\Files\License.txt
+LicenseFile=Files\License.txt
 OutputBaseFilename=injuredpixels-install
 SolidCompression=yes
 ArchitecturesInstallIn64BitMode=x64 ia64
-InternalCompressLevel=ultra64
-Compression=lzma2/ultra64
+InternalCompressLevel=max
+AppCopyright=Copyright (c) 2009-2017 Aurelitec
+SetupIconFile=Assets\InjuredPixelsIcon.ico
+UninstallDisplayIcon={app}\InjuredPixels.exe
+VersionInfoVersion={#MyAppFileVersion}
+UninstallDisplayName={#MyAppName}
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
@@ -36,12 +41,12 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "D:\HDevelop\Aurelitec\InjuredPixels\Windows\WinForms\Source\GitRepository\InjuredPixels\Installer\InnoSetup\Files\InjuredPixels.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\HDevelop\Aurelitec\InjuredPixels\Windows\WinForms\Source\GitRepository\InjuredPixels\Installer\InnoSetup\Files\HomePage.link.html"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\HDevelop\Aurelitec\InjuredPixels\Windows\WinForms\Source\GitRepository\InjuredPixels\Installer\InnoSetup\Files\InjuredPixels.exe.config"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files\InjuredPixels.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files\HomePage.link.html"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files\InjuredPixels.exe.config"; DestDir: "{app}"; Flags: ignoreversion; AfterInstall: UpdateLogPath
 Source: "Files\InjuredPixels.ini"; DestDir: "{userappdata}\Aurelitec\InjuredPixels"; Flags: ignoreversion onlyifdoesntexist
-Source: "D:\HDevelop\Aurelitec\InjuredPixels\Windows\WinForms\Source\GitRepository\InjuredPixels\Installer\InnoSetup\Files\License.txt"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\HDevelop\Aurelitec\InjuredPixels\Windows\WinForms\Source\GitRepository\InjuredPixels\Installer\InnoSetup\Files\SharpConfig.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files\License.txt"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files\SharpConfig.dll"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
@@ -52,3 +57,18 @@ Name: "{commondesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: 
 
 [Run]
 Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent
+
+[Dirs]
+Name: "{commonappdata}\Aurelitec\InjuredPixels"
+
+[Code]
+procedure UpdateLogPath;
+var
+    AnsiFileData: AnsiString;
+    UnicodeFileData: string;
+begin
+    LoadStringFromFile(ExpandConstant('{app}\InjuredPixels.exe.config'), AnsiFileData);
+    UnicodeFileData := String(AnsiFileData);
+    StringChange(UnicodeFileData, 'InjuredPixels.log', ExpandConstant('{commonappdata}\Aurelitec\InjuredPixels\InjuredPixels.log'));
+    SaveStringToFile(ExpandConstant('{app}\InjuredPixels.exe.config'), AnsiString(UnicodeFileData), False);
+end;

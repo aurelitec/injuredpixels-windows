@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("InjuredPixels")]
-[assembly: AssemblyDescription("InjuredPixels allows you to easily check for dead or defective pixels on LCD monitors.")]
+[assembly: AssemblyDescription("InjuredPixels (for Windows) can help you check your PC, laptop or tablet screen for dead pixels, scratches or defects.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Aurelitec")]
 [assembly: AssemblyProduct("InjuredPixels")]
