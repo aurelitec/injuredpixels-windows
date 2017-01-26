@@ -79,6 +79,15 @@ namespace InjuredPixels.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ColorIndex.
+        /// </summary>
+        internal static string ConfigColorIndex {
+            get {
+                return ResourceManager.GetString("ConfigColorIndex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to CustomColor.
         /// </summary>
         internal static string ConfigCustomColor {

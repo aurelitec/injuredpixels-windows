@@ -123,6 +123,9 @@
   <data name="ConfigAlwaysOnTop" xml:space="preserve">
     <value>AlwaysOnTop</value>
   </data>
+  <data name="ConfigColorIndex" xml:space="preserve">
+    <value>ColorIndex</value>
+  </data>
   <data name="ConfigCustomColor" xml:space="preserve">
     <value>CustomColor</value>
   </data>

@@ -70,7 +70,7 @@ namespace InjuredPixels
             this.Icon = Icon.ExtractAssociatedIcon(System.Reflection.Assembly.GetExecutingAssembly().Location);
 
             // Set the screen color to the default Black color (color index 0)
-            this.SetNewScreenColor(this.previousColorIndex = 0);
+            this.SetColorIndex(this.previousColorIndex = 0);
 
             // set the text of the About Details menu item with program information
             this.menuAboutVersion.Text = string.Format(CultureInfo.CurrentCulture, this.menuAboutVersion.Text, Application.ProductVersion);
@@ -192,7 +192,7 @@ namespace InjuredPixels
         /// in the main context menu.
         /// </summary>
         /// <param name="newColorIndex">The index of the new color.</param>
-        private void SetNewScreenColor(int newColorIndex)
+        private void SetColorIndex(int newColorIndex)
         {
             // If by some error we try to set a color index out of range, default to 0 (black)
             if ((newColorIndex < 0) || (newColorIndex > MaxColorIndex))
@@ -229,7 +229,7 @@ namespace InjuredPixels
             // Set the screen color to the new custom color
             if (activate)
             {
-                this.SetNewScreenColor(this.mainContextMenu.Items.IndexOf(this.menuCustomColor));
+                this.SetColorIndex(this.mainContextMenu.Items.IndexOf(this.menuCustomColor));
             }
         }
 
@@ -341,7 +341,7 @@ namespace InjuredPixels
         /// <param name="e">An object that contains no event data.</param>
         private void AnyColorMenuItemClick(object sender, EventArgs e)
         {
-            this.SetNewScreenColor(this.mainContextMenu.Items.IndexOf(sender as ToolStripItem));
+            this.SetColorIndex(this.mainContextMenu.Items.IndexOf(sender as ToolStripItem));
         }
 
         /// <summary>
@@ -352,7 +352,7 @@ namespace InjuredPixels
         /// <param name="e">An object that contains no event data.</param>
         private void MenuNextColorOnClick(object sender, EventArgs e)
         {
-            this.SetNewScreenColor((this.previousColorIndex < MaxColorIndex) ? this.previousColorIndex + 1 : 0);
+            this.SetColorIndex((this.previousColorIndex < MaxColorIndex) ? this.previousColorIndex + 1 : 0);
         }
 
         /// <summary>
@@ -363,7 +363,7 @@ namespace InjuredPixels
         /// <param name="e">An object that contains no event data.</param>
         private void MenuPreviousColorOnClick(object sender, EventArgs e)
         {
-            this.SetNewScreenColor((this.previousColorIndex > 0) ? this.previousColorIndex - 1 : MaxColorIndex);
+            this.SetColorIndex((this.previousColorIndex > 0) ? this.previousColorIndex - 1 : MaxColorIndex);
         }
 
         /// <summary>
@@ -493,6 +493,8 @@ namespace InjuredPixels
                     this.menuTouchMode.Checked = section[Properties.Resources.ConfigTouchMode].BoolValue;
                     int colorIntValue = section[Properties.Resources.ConfigCustomColor].IntValue;
                     this.SetCustomColor(Color.FromArgb(colorIntValue), false);
+                    int colorIndex = section[Properties.Resources.ConfigColorIndex].IntValue;
+                    this.SetColorIndex(colorIndex);
                 }
             }
             catch (Exception ex)
@@ -518,6 +520,7 @@ namespace InjuredPixels
                     section[Properties.Resources.ConfigAlwaysOnTop].BoolValue = this.menuAlwaysOnTop.Checked;
                     section[Properties.Resources.ConfigTouchMode].BoolValue = this.menuTouchMode.Checked;
                     section[Properties.Resources.ConfigCustomColor].IntValue = this.menuCustomColor.BackColor.ToArgb();
+                    section[Properties.Resources.ConfigColorIndex].IntValue = this.previousColorIndex;
                     config.SaveToFile(configFileName);
                 }
             }
