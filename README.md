@@ -5,7 +5,7 @@ InjuredPixels can be used to test a new LCD monitor before purchasing, or an alr
 
 The program is easy to use: click or use the arrow keys to cycle through colors or right-click to get the menu with the main commands. InjuredPixels can be run directly without having to install it on your computer: just download the portable version and run.
 
-![InjuredPixels Screenshot](https://cloud.githubusercontent.com/assets/19592808/22342511/595196d6-e3fd-11e6-81f7-dc21ac118552.png)
+![InjuredPixels Screenshot](Assets/Screenshots/injuredpixels-screenshot-black-menu.png)
 
 ## Quotes
 
@@ -17,7 +17,7 @@ The program is easy to use: click or use the arrow keys to cycle through colors 
 
 > "Dead pixels can't escape from you now" (Scroll Magazine)
 
-[More Reviews](http://www.aurelitec.com/injuredpixels/windows/reviews/)
+[More Reviews](https://www.aurelitec.com/injuredpixels/windows/reviews/)
 
 ## Download
 
