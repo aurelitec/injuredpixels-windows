@@ -21,7 +21,7 @@ The program is easy to use: click or use the arrow keys to cycle through colors 
 
 ## Download
 
-The latest stable version of InjuredPixels can be downloaded from http://www.aurelitec.com/injuredpixels/windows/download/. You can download the Installation package, or a fully portable edition that does not require installation. InjuredPixels runs on Windows 10, 8, 7, Vista, and XP.
+The latest stable version of InjuredPixels can be downloaded from [Aurelitec](https://www.aurelitec.com/injuredpixels/windows/download/) or [GitHub Releases](https://github.com/aurelitec/injuredpixels-windows/releases). You can download the Installation package, or a fully portable edition that does not require installation. InjuredPixels runs on Windows 10, 8, 7, Vista, and XP.
 
 ## Source Code
 
@@ -29,11 +29,11 @@ InjuredPixels is written in C# using Windows Forms and .NET Framework 2.0. The p
 
 ## Contributions
 
-Contributions are welcome! For feature requests and bug reports please [submit an issue](https://github.com/aurelitec/injuredpixels-windows/issues).
+Contributions are welcome: code, text, documentation, design, graphics, suggestions. Please fork this repository and contribute back using [pull requests](https://github.com/aurelitec/injuredpixels-windows/pulls), [submit an issue](https://github.com/aurelitec/injuredpixels-windows/issues), or [send an email](https://www.aurelitec.com/support/).
 
 ## Sponsor
 
-InjuredPixels (and all Aurelitec free applications) are supported by [East-Tec](http://www.east-tec.com), the home of [east-tec Eraser](http://www.east-tec.com/eraser/), the privacy tool that quickly and securely covers your online and PC tracks.
+InjuredPixels (and all Aurelitec free applications) are supported by [East-Tec](https://www.east-tec.com), the home of [east-tec Eraser](https://www.east-tec.com/eraser/), the privacy tool that quickly and securely covers your online and PC tracks.
 
 ## License
 
