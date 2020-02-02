@@ -31,9 +31,9 @@ InjuredPixels is written in C# using Windows Forms and .NET Framework 2.0. The p
 
 Contributions are welcome: code, text, documentation, design, graphics, suggestions. Please fork this repository and contribute back using [pull requests](https://github.com/aurelitec/injuredpixels-windows/pulls), [submit an issue](https://github.com/aurelitec/injuredpixels-windows/issues), or [send an email](https://www.aurelitec.com/support/).
 
-## Sponsor
+## Author
 
-InjuredPixels (and all Aurelitec free applications) are supported by [East-Tec](https://www.east-tec.com), the home of [east-tec Eraser](https://www.east-tec.com/eraser/), the privacy tool that quickly and securely covers your online and PC tracks.
+InjuredPixels for Windows was created in 2009 by [Horațiu Tănescu](https://horatiu.me), cofounder of [East-Tec](https://www.east-tec.com) and original creator of [east-tec Eraser](https://www.east-tec.com/eraser/), the privacy solution that quickly and securely covers your online and PC tracks.
 
 ## License
 
